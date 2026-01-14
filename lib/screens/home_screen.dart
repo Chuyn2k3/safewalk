@@ -177,7 +177,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
     if (lat == null || lng == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Lat/Lng không hợp lệ")),
+        const SnackBar(content: Text("Invalid latitude or longitude")),
       );
       return;
     }
@@ -190,7 +190,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     });
 
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text("📌 Đã cập nhật vùng giám sát")),
+      const SnackBar(content: Text("📌 Monitoring zone updated")),
     );
   }
 
@@ -202,7 +202,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
     _warningEntry = showSimpleNotification(
       const Text(
-        "⚠️ Đang di chuyển trong vùng giám sát",
+        "⚠️ Moving inside monitoring zone",
         style: TextStyle(color: Colors.white),
       ),
       background: Colors.red,
@@ -270,15 +270,15 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("📍 Vị trí hiện tại: $lat , $lng"),
+              Text("📍 Current location: lat: $lat , lon: $lng"),
               const SizedBox(height: 4),
               Text(
-                "🎯 Trung tâm vùng giám sát: $zoneLat , $zoneLng",
+                "🎯 Monitoring zone center: $zoneLat , $zoneLng",
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 16),
               Text(
-                "📏 Khoảng cách đến vùng trung tâm: $_distanceToZone m",
+                "📏 Distance to zone center: ${_distanceToZone?.toStringAsFixed(2)} m",
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 24),
@@ -326,14 +326,14 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
               const SizedBox(height: 12),
               ElevatedButton(
                 onPressed: _updateZoneFromInput,
-                child: const Text("📌 Cập nhật vùng giám sát"),
+                child: const Text("📌 Monitoring zone updated"),
               ),
 
               const Divider(height: 32),
 
               // DEBUG STATE
-              Text("📍 Trong vùng: $_isInsideZone"),
-              Text("🚶 Di chuyển: $_isMoving"),
+              Text("📍 Inside zone: $_isInsideZone"),
+              Text("🚶 Moving: $_isMoving"),
               Text("📱 Screen ON: $_isScreenOn"),
               Text("⏱ Screen > 5s: $_screenOnTooLong"),
               Text("🔐 Subscription: $_subscriptionValid"),
