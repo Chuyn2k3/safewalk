@@ -298,9 +298,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                   Expanded(
                     child: TextField(
                       controller: _latController,
-                      keyboardType: const TextInputType.numberWithOptions(
-                        decimal: true,
-                      ),
+                     
                       decoration: const InputDecoration(
                         labelText: "Latitude",
                         border: OutlineInputBorder(),
@@ -311,9 +309,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                   Expanded(
                     child: TextField(
                       controller: _lngController,
-                      keyboardType: const TextInputType.numberWithOptions(
-                        decimal: true,
-                      ),
                       decoration: const InputDecoration(
                         labelText: "Longitude",
                         border: OutlineInputBorder(),
